@@ -1,6 +1,6 @@
 // Moment Time Format
 var restore = function () {
-    document.querySelector("#currentDay").innerHTML = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+    document.querySelector("#currentDay").innerHTML = moment().format("dddd, MMMM Do YYYY, h:mm:ss A");
   };
   setInterval(restore, 1000);
 
@@ -21,8 +21,9 @@ $(document).ready(function () {
       var inputField = $("#" + dataHour).val();
   
       localStorage.setItem(dataHour, inputField);
-      console.log("At "+dataHour+" o'clock You should do: "+inputField);
+      console.log("At "+dataHour+" o'clock You should do: "+inputField);  
     });
+   
 });
 
 //   Delete Notes
@@ -50,7 +51,8 @@ $("#8amdeleteN").click(function () {
     console.log("11 Am task got deleted")
   });
 
-  $("#12pmdeleteN").click(function () {
+  $("#12pmdeleteN").click(function (event) {
+    event.preventDefault();
     $("#12").val("");
     localStorage.setItem(12, "");
     console.log("12 Pm task got deleted")
@@ -104,9 +106,9 @@ Array.from(time).forEach((row) => {
     if (currentTime === rowTime) {
       setColor(row, "lightgreen");
     } else if (currentTime < rowTime) {
-      setColor(row, "beige");
+      setColor(row, "lightblue");
     } else if (currentTime > rowTime) {
-      setColor(row, "beige");
+      setColor(row, "grey");
     }
   }
 });
