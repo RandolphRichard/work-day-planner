@@ -8,7 +8,7 @@ var restore = function () {
   //Save Notes
 
 $(document).ready(function () {
-    var timeFrame = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+    var timeFrame = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
     function renderPlans() {
       for (var i = 0; i <= timeFrame.length; i++) {
         $("#" + timeFrame[i]).val(localStorage.getItem(timeFrame[i]));
@@ -27,6 +27,17 @@ $(document).ready(function () {
 });
 
 //   Delete Notes
+$("#6amdeleteN").click(function () {
+  $("#6").val("");
+  localStorage.setItem(8, "");
+  console.log("6 Am task got deleted")
+});
+
+$("#7amdeleteN").click(function () {
+  $("#7").val("");
+  localStorage.setItem(8, "");
+  console.log("7 Am task got deleted")
+});
 $("#8amdeleteN").click(function () {
     $("#8").val("");
     localStorage.setItem(8, "");
@@ -73,19 +84,43 @@ $("#8amdeleteN").click(function () {
   $("#3pmdeleteN").click(function () {
     $("#15").val("");
     localStorage.setItem(15, "");
-    console.log("14 Pm task got deleted")
+    console.log("15 Pm task got deleted")
   });
 
   $("#4pmdeleteN").click(function () {
     $("#16").val("");
     localStorage.setItem(16, "");
-    console.log("15 Pm task got deleted")
+    console.log("16 Pm task got deleted")
   });
 
   $("#5pmdeleteN").click(function () {
     $("#17").val("");
     localStorage.setItem(17, "");
-    console.log("16 Pm task got deleted")
+    console.log("17 Pm task got deleted")
+  });
+
+  $("#6pmdeleteN").click(function () {
+    $("#18").val("");
+    localStorage.setItem(18, "");
+    console.log("18 Pm task got deleted")
+  });
+
+  $("#7pmdeleteN").click(function () {
+    $("#19").val("");
+    localStorage.setItem(19, "");
+    console.log("19 Pm task got deleted")
+  });
+
+  $("#8pmdeleteN").click(function () {
+    $("#20").val("");
+    localStorage.setItem(20, "");
+    console.log("20 Pm task got deleted")
+  });
+
+  $("#9pmdeleteN").click(function () {
+    $("#21").val("");
+    localStorage.setItem(21, "");
+    console.log("21 Pm task got deleted")
   });
 
   // set color based on the real time of the day
@@ -98,8 +133,8 @@ Array.from(time).forEach((row) => {
   if (rowIdSlot) {
     rowTime = parseInt(rowIdSlot);
   }
-  if (rowTime < 8) {
-    rowTime+= 12;
+  if (rowTime < 6) {
+    rowTime += 12;
   }
   if (rowTime) {
     // set color based on time frame
